@@ -29,6 +29,33 @@ class _NewExpenseState extends State<NewExpense> {
     });
   }
 
+  void _submitExpenseData() {
+    // this will convert the text to number if possible and if not possible then it will return null
+    final enteredAmount = double.tryParse(_amountController.text);
+    // this will check whether the parsed is null or not and also check for the amount is less than 0 or not
+    final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
+    if (_titleController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        _selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text("Inavlid input"),
+          content: const Text("Please enter only valid inputs."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text("Close"),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -122,6 +149,7 @@ class _NewExpenseState extends State<NewExpense> {
                   child: const Text("Cancel")),
               ElevatedButton(
                 onPressed: () {
+                  _submitExpenseData();
                   // print(_titleController.text);
                   // print(_amountController.text);
                 },
