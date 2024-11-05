@@ -89,17 +89,21 @@ class _ExpensesState extends State<Expenses> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Expense Tracker"),
+        title: const Text(
+          "Expense Tracker",
+          style: TextStyle(color: Colors.white),
+        ),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
+            style: IconButton.styleFrom(foregroundColor: Colors.white),
           ),
         ],
       ),
       body: Column(
         children: [
-          const Text("List of Chart"),
+          // const Text("List of Chart"),
           Expanded(
             child: mainContent,
           ),
