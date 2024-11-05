@@ -17,6 +17,7 @@ class ExpensesList extends StatelessWidget {
         direction: DismissDirection.endToStart, // Swipe from right to left
         onDismissed: (direction) => onRemoveExpense(expenses[index]),
         key: ValueKey(expenses[index]),
+
         child: ExpenseItem(
           expense: expenses[index],
         ),
