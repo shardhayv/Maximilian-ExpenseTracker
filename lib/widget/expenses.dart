@@ -91,13 +91,13 @@ class _ExpensesState extends State<Expenses> {
       appBar: AppBar(
         title: const Text(
           "Expense Tracker",
-          style: TextStyle(color: Colors.white),
+          // style: TextStyle(color: Colors.white),
         ),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
-            style: IconButton.styleFrom(foregroundColor: Colors.white),
+            // style: IconButton.styleFrom(foregroundColor: Colors.white),
           ),
         ],
       ),
